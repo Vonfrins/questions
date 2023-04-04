@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "任务-Q11",
+      "appliesTo": "Q11.c",
+      "type": "launch"
+    }
+  ]
+}
