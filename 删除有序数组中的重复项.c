@@ -18,7 +18,7 @@ int removeDuplicates(int* nums, int numsSize)
 	int i = 0;                    // 设置两个指针 i,j ，i指向数组首元素地址，j指向第二个元素的地址，用i来表示修改后数组的末尾
 	for (int j = 1; j < numsSize; j++)  // 用j来 遍历数组，寻找重复元素
 	{
-		if (nums[j] != nums[i])   // (如果遇到相等的元素，则i不改变)若遇到不相同的元素，即新的非重复元素则
+		if (nums[j] != nums[i])   // (如果遇到相等的元素，则i不改变)若遇到不相同的元素，即新的非重复元素
 		{
 			i++;                  // 则将i指针后移
 			nums[i] = nums[j];    // 并将新的非重复元素（nums[j]）赋给i
