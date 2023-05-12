@@ -37,7 +37,7 @@ int* plusOne(int* digits, int* digitsSize, int* returnSize)
     if (carry)
     {
         *returnSize = digitsSize + 1;
-        int newdigits = (int*)malloc((*returnSize) * sizeof(int));
+        int* newdigits = (int*)malloc((*returnSize) * sizeof(int));
         newdigits[0] = 1;
         for (int j = 0; j < digitsSize; j++)
         {
@@ -56,3 +56,28 @@ int* plusOne(int* digits, int* digitsSize, int* returnSize)
 
 // ·½·¨¶þ: 
 
+int* plusOne(int* digits, int* digitsSize, int* returnSize)
+{
+    for (int i = digitsSize - 1; i >= 0; i--)
+    {
+        if (digits[i] != 9)
+        {
+            digits[i]++;
+            break;
+        }
+        digits[i] = 0;
+    }
+    if (digits[0] == 0)
+    {
+        *returnSize = digitsSize+1;
+        int* newdigits = (int*)malloc((*returnSize) * sizeof(int));
+        int newdigits[0] = 1;
+        for (int j = 1; j < digitsSize + 1; j++)
+        {
+            newdigits[j] = digits[j - 1];
+        }
+        return newdigits;
+    }
+    *returnSize = digitsSize;
+    return digits;
+}
