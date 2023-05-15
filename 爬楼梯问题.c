@@ -33,8 +33,24 @@ int climbStairs(int n)
 
 
 
-int main()
+// 优化方法：
+int climbStairs(int n)
 {
-	int n = 3;
-	printf("%d\n", climbStairs(n));
+	if (n == 0 || n == 1)
+		return 1;
+
+	int prev1 = 1;    // 爬到前一个台阶的方法数
+	int prev2 = 1;    // 爬到前两个台阶的方法数
+	int result = 0;
+
+	for (int i = 2; i <= n; i++)
+	{
+		result = prev1 + prev2;
+		prev2 = prev1;
+		prev1 = result;
+	}
+
+	return result;
 }
+
+// 仅使用了三个变量来存储，无需使用数组，将空间复杂度从 O(n) 降低为 O(1)
